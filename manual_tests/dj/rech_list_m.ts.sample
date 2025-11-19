@@ -1,0 +1,14 @@
+export interface RechListViewModel {
+    rech_num: string;
+    verrechnet_am: string; // ISO datetime string
+    firma1: string;
+    gesamt_betrag: number; // Decimal -> number
+    rech_pk: number;
+}
+
+export interface RechListSearchData {
+    rechnungs_nr:string,
+    firma:string,
+}
+
+

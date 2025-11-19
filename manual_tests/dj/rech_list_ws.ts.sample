@@ -1,0 +1,65 @@
+import {DkmUrlBuilder} from "../../src/dkm_url_builder";
+import {RechListSearchData, RechListViewModel} from "./rech_list_m";
+import {getCsrfTokenOrFail} from "./dkm_django_ws";
+import {createPostPromiseWithOpts, IWebSrvcExecOpts} from "../../src/websrvc";
+
+const CONTEXT_NAME="dkmfakt/appdkmfakt";
+const WS_APP_NAME="rechnung";
+const RES_NAME="list";
+
+
+function buildWebSrvcUrl(funcName: string,pathParams?:string[]) {
+    return DkmUrlBuilder.buildFullWebSrvcUrl({
+        pathParams: pathParams ||[],
+        funcName,
+        WS_APP_NAME,
+        RES_NAME,
+        CONTEXT_NAME
+    });
+}
+
+export interface JsonResult {
+    date_fields: string[];
+    decimal_fields: string[];
+    rows: Record<string, any>[];
+}
+
+function jsonResToTypeArr<T>(jsres: JsonResult) :Array<T> {
+    if (jsres && jsres.rows && jsres.rows.length > 0 &&
+        (jsres.date_fields || jsres.decimal_fields)) {
+
+        jsres.rows.forEach(row => {
+            Object.keys(row).forEach(key => {
+                if (jsres.date_fields && jsres.date_fields.includes(key)) {
+                    row[key] = new Date(row[key]);
+                }
+                if (jsres.decimal_fields && jsres.decimal_fields.includes(key)) {
+                    row[key] = parseFloat(row[key]);
+                }
+            })
+        })
+        return jsres.rows as any as Array<T>;
+    }
+    return []
+}
+//rechnung/list/search
+
+export async function rech_list_search(pars:RechListSearchData): Promise<Array<RechListViewModel>> {
+    const url = buildWebSrvcUrl("search")
+    //export interface IWebSrvcExecOpts {
+    //     wsDateFormat: IWsDateFormat;
+    //     datePropNames?: string[];
+    //     plainText?: boolean;
+    //     additionalHeaders?: Record<string, string>;
+    // }
+    const csrfToken = getCsrfTokenOrFail();
+    const postOpts:IWebSrvcExecOpts = {
+        wsDateFormat:"dkm_date_format",
+        additionalHeaders: {
+            "X-CSRFToken": csrfToken
+        },
+        withCredentials: true,
+    }
+    const res= await createPostPromiseWithOpts<JsonResult>(url, pars, postOpts);
+    return jsonResToTypeArr(res);
+}

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8" />
+    <title>Manueller Browser-Test</title>
+</head>
+<body>
+<h1>Browser-Django Testseite</h1>
+
+
+<pre id="out"></pre>
+
+<!-- Vite lädt dein TypeScript als ES Module -->
+<script type="module" src="/dj/django_csfr_token.ts"></script>
+</body>
+</html>

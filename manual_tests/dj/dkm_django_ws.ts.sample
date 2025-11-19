@@ -1,0 +1,41 @@
+// csrf
+const CSRF_TOKEN="csrftoken"
+// csrf.ts
+export async function ensureCsrfToken(hostroot:string):Promise<string> {
+    let ret=getCookie(CSRF_TOKEN)
+    if (!ret) {
+        const res=await fetch(hostroot + "/api/csrf/", { credentials: "include" });
+        const cookie = res.headers.get("set-cookie");
+        if (cookie) {
+            document.cookie = cookie; // 🧠 manuell speichern
+        }
+        const jsondata=await res.json();
+        const token= getCookie(CSRF_TOKEN);
+        if (!token) {
+            throw new Error(`konnte Token ${CSRF_TOKEN} nicht laden` )
+        }
+        return token;
+    }
+    return ret;
+}
+
+export function getCsrfTokenOrFail() :string {
+    const token = getCookie(CSRF_TOKEN);
+    if (!token) {
+        throw Error(`${CSRF_TOKEN} nicht in Cookies gefunden`)
+    }
+    return token;
+}
+
+function getCookie(name: string): string | null {
+  const cookieStr = document.cookie;
+  const cookies = cookieStr ? cookieStr.split("; ") : [];
+  for (let i = 0; i < cookies.length; i++) {
+    const [key, value] = cookies[i].split("=");
+    if (key === name) {
+      return decodeURIComponent(value);
+    }
+  }
+  return null;
+}
+

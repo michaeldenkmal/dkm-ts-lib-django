@@ -1,0 +1,1 @@
+mocha -r "ts-node/register" -r "test/setup.ts" "test/**/*.spec.ts"

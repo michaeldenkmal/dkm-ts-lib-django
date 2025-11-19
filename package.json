@@ -1,0 +1,34 @@
+{
+  "name": "@at.dkm/dkm-ts-lib-django",
+  "version": "1.0.0",
+  "description": "Denkmal Typescript Django Utils",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib/**/*"
+  ],
+  "dependencies": {
+  },
+  "devDependencies": {
+    "@types/chai": "^5.2.3",
+    "@types/jsdom": "^27.0.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^14.14.41",
+    "chai": "^6.2.0",
+    "jsdom": "^27.0.1",
+    "jsdom-global": "^3.0.2",
+    "mocha": "^11.7.4",
+    "ts-node": "^10.9.2",
+    "typescript": "3.7.4",
+    "vite": "^7.1.12"
+  },
+  "scripts": {
+    "test": "mocha -r ts-node/register -r test/setup.ts 'test/**/*.spec.ts'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/michaeldenkmal/dkm-ts-lib-django.git"
+  },
+  "author": "",
+  "license": "ISC"
+}

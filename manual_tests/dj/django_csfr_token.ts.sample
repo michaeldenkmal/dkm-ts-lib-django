@@ -1,0 +1,33 @@
+import {ensureCsrfToken} from "./dkm_django_ws";
+import {rech_list_search} from "./rech_list_ws";
+import {initIDbConf} from "../../src/IDbConf";
+
+
+const DKMFAKT_APPDKMFAKT_CONTEXT = "dkmfakt/appdkmfakt"
+
+const django_root_url = "http://localhost:8080/dkmfakt";
+
+async function main() {
+    const csrftokem = await ensureCsrfToken("http://localhost:8000/dkmfakt")
+    initIDbConf(document.location.href, "", {
+        [DKMFAKT_APPDKMFAKT_CONTEXT]: "http://localhost:8000"
+        // "wa_ga_gastv":"http://localhost:8084",
+        // "wa_ga_anwlst":"http://localhost:8084",
+        // "dkmMVC":"http://localhost:8084",
+        // "wa_ga_grpvw23":"http://localhost:8084"
+    })
+    const rows = await rech_list_search({
+        firma: "Jeitler", rechnungs_nr: ""
+    })
+    //console.log(JSON.stringify(rows, null, 2));
+   for (const row of rows) {
+       if ( !((row.verrechnet_am  as any) instanceof Date)) {
+           console.error("row.verrechnet_am is not a date");
+       } else {
+           console.log("row.verrechnet_am is a date");
+       }
+   }
+}
+
+main();
+
