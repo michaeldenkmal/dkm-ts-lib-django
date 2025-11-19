@@ -8,6 +8,8 @@
     "lib/**/*"
   ],
   "dependencies": {
+    "@at.dkm/dkm-ts-lib-gen": "^1.2.34",
+    "decimal.js": "^10.6.0"
   },
   "devDependencies": {
     "@types/chai": "^5.2.3",

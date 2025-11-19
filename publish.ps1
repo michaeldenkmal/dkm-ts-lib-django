@@ -1,3 +1,5 @@
+$ErrorActionPreference = "Stop"
+
 function pause($msg) {
     Read-Host "$msg (Strg-c für Abbruch)"
 }
@@ -10,8 +12,14 @@ function compile_ts() {
     }
 }
 
+function remove-folder-if-exists($folder) {
+    $fp = Join-Path -Path $PSScriptRoot -ChildPath $folder
+    if (Test-Path -Path $fp) {
+        Remove-Item -Recurse -Force $fp
+    }
+}
 
-Remove-Item -Recurse -Force lib
+remove-folder-if-exists --folder "lib"
 #pause "Ist Ein Fehler aufgetreten?, wenn ha dann hier abbrechen"
 #npx tsc -p tsconfig.json
 compile_ts
@@ -23,10 +31,12 @@ robocopy src lib *.png /S
 robocopy src lib *.js /S
 
 # jetzt den lib/test/ ordner löschen
-Remove-Item -Recurse -Force lib\test
+#Remove-Item -Recurse -Force lib\test
+remove-folder-if-exists --folder "lib\text"
 # den inhalt von lib/src order verschieben
-Move-Item -Path "lib\src\*" -Destination "lib"
-Remove-Item -Recurse -Force lib\src
+#Move-Item -Path "lib\src\*" -Destination "lib"
+# vRemove-Item -Recurse -Force lib\src
+remove-folder-if-exists "lib\src"
 
 Start-Process "git" -ArgumentList "gui" -Wait
 

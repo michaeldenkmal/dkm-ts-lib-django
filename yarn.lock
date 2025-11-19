@@ -29,26 +29,10 @@
   resolved "https://registry.yarnpkg.com/@asamuzakjp/nwsapi/-/nwsapi-2.3.9.tgz#ad5549322dfe9d153d4b4dd6f7ff2ae234b06e24"
   integrity sha512-n8GuYSrI9bF7FFZ/SjhwevlHc8xaVlb/7HmHelnc/PZXBD2ZR49NnN9sMMuDdEGPeeRQ5d0hqlSlEpgCX3Wl0Q==
 
-"@at.dkm/dkm-ts-lib-browser-gen@^1.0.0":
-  version "1.0.20"
-  resolved "https://registry.npmjs.org/@at.dkm/dkm-ts-lib-browser-gen/-/dkm-ts-lib-browser-gen-1.0.20.tgz"
-  integrity sha512-yDVu713XL1bDYSZ/KdOgWes8vYykxt2DC/cDMlAbYClKENzLo2BBqCJjnO+ezVLiKwbTrINodnd0bTZyHlSmcQ==
-  dependencies:
-    "@at.dkm/dkm-ts-lib-gen" "^1.0.3"
-
-"@at.dkm/dkm-ts-lib-gen@^1.0.3":
-  version "1.2.8"
-  resolved "https://registry.npmjs.org/@at.dkm/dkm-ts-lib-gen/-/dkm-ts-lib-gen-1.2.8.tgz"
-  integrity sha512-OVPLNlDiMUm8utV++NlWpWGde/d3H/1fmO5vfdNBlsAMTchBIY3iySwjJBWKgJkQ+LS8D6/xY67zznAHiKbURw==
-
-"@at.dkm/dkm-ts-lib-jquery@^1.0.0":
-  version "1.1.4"
-  resolved "https://registry.npmjs.org/@at.dkm/dkm-ts-lib-jquery/-/dkm-ts-lib-jquery-1.1.4.tgz"
-  integrity sha512-VsG8Yzd80a8IigZExaZ++NIXEqBsb0cwk5R8LuwK0BAuXKixpJZ2Ao9wHs0Yrh8Jmhb1ze6p5g6dZE5vBitgNA==
-  dependencies:
-    "@at.dkm/dkm-ts-lib-gen" "^1.0.3"
-    "@types/jquery" "^3.5.5"
-    jquery "3.1.1"
+"@at.dkm/dkm-ts-lib-gen@^1.2.34":
+  version "1.2.34"
+  resolved "https://registry.yarnpkg.com/@at.dkm/dkm-ts-lib-gen/-/dkm-ts-lib-gen-1.2.34.tgz#20dd639de688e1b3af114f98e6db5c209b276d69"
+  integrity sha512-JvIDmRtM3V06bhJZuYGtwxDvvs1D7hMdC7K6R9BmzalnRslwtFnyyNZ9qd35ms/dM+NfLV8TJIfKgTcl+7BKCQ==
 
 "@cspotcode/source-map-support@^0.8.0":
   version "0.8.1"
@@ -403,13 +387,6 @@
   resolved "https://registry.yarnpkg.com/@types/estree/-/estree-1.0.8.tgz#958b91c991b1867ced318bedea0e215ee050726e"
   integrity sha512-dWHzHa2WqEXI/O1E9OjrocMTKJl2mSrEolh1Iomrv6U+JuNwaHXsXx9bLu5gG7BUWFIN0skIQJQ/L1rIex4X6w==
 
-"@types/jquery@^3.5.5":
-  version "3.5.6"
-  resolved "https://registry.npmjs.org/@types/jquery/-/jquery-3.5.6.tgz"
-  integrity sha512-SmgCQRzGPId4MZQKDj9Hqc6kSXFNWZFHpELkyK8AQhf8Zr6HKfCzFv9ZC1Fv3FyQttJZOlap3qYb12h61iZAIg==
-  dependencies:
-    "@types/sizzle" "*"
-
 "@types/jsdom@^27.0.0":
   version "27.0.0"
   resolved "https://registry.yarnpkg.com/@types/jsdom/-/jsdom-27.0.0.tgz#b052f414edd10a316a006cde8991a4266fe22038"
@@ -435,11 +412,6 @@
   version "14.14.41"
   resolved "https://registry.npmjs.org/@types/node/-/node-14.14.41.tgz"
   integrity sha512-dueRKfaJL4RTtSa7bWeTK1M+VH+Gns73oCgzvYfHZywRCoPSd8EkXBL0mZ9unPTveBn+D9phZBaxuzpwjWkW0g==
-
-"@types/sizzle@*":
-  version "2.3.3"
-  resolved "https://registry.npmjs.org/@types/sizzle/-/sizzle-2.3.3.tgz"
-  integrity sha512-JYM8x9EGF163bEyhdJBpR2QX1R5naCJHC8ucJylJ3w9/CVBaskdQ8WqBf8MmQrd1kRvp/a4TS8HJ+bxzR7ZJYQ==
 
 "@types/tough-cookie@*":
   version "4.0.5"
@@ -824,11 +796,6 @@ jackspeak@^3.1.2:
     "@isaacs/cliui" "^8.0.2"
   optionalDependencies:
     "@pkgjs/parseargs" "^0.11.0"
-
-jquery@3.1.1:
-  version "3.1.1"
-  resolved "https://registry.npmjs.org/jquery/-/jquery-3.1.1.tgz"
-  integrity sha1-NHwcIcfgBBFeCk2jLOzgQfrTyKM=
 
 js-yaml@^4.1.0:
   version "4.1.0"
