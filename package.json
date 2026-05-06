@@ -5,7 +5,9 @@
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "files": [
-    "lib/**/*"
+    "lib",
+    "src",
+    "package.json"
   ],
   "dependencies": {
     "@at.dkm/dkm-ts-lib-gen": "^1.2.34",
