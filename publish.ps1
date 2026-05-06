@@ -5,7 +5,7 @@ function pause($msg) {
 }
 
 function compile_ts() {
-    .\build_ignore_node_mod_errs.ps1
+    .\compile
     if ($LASTEXITCODE -ne 0) {
         Write-Host "❌ Fehler beim Kompilieren!"
         exit $proc.ExitCode
